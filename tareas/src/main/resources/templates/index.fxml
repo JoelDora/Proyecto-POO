@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="601.0" prefWidth="895.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo.tareas.controlador.IndexControlador">
+   <children>
+      <Label layoutX="213.0" layoutY="23.0" text="Sistemas de Tareas y Proyectos" textFill="#e63946">
+         <font>
+            <Font name="Arial Black" size="25.0" />
+         </font></Label>
+      <TableView fx:id="tareaTabla" layoutX="245.0" layoutY="142.0" onMouseClicked="#cargarTareaFormulario" prefHeight="407.0" prefWidth="622.0">
+        <columns>
+          <TableColumn fx:id="idTareaColumna" prefWidth="34.0" text="ID" />
+          <TableColumn fx:id="nombreTareaColumna" prefWidth="89.0" text="Nombre Tarea" />
+            <TableColumn fx:id="descripcionColumna" prefWidth="122.0" text="Descripción Tarea" />
+            <TableColumn fx:id="responsableColumna" prefWidth="79.0" text="Responsable" />
+            <TableColumn fx:id="estadoColumna" prefWidth="54.0" text="Estado Tarea" />
+            <TableColumn fx:id="prioridadColumna" prefWidth="72.0" text="Prioridad Tarea" />
+            <TableColumn fx:id="fechaInicioColumna" prefWidth="92.0" text="Fecha de Inicio" />
+            <TableColumn fx:id="fechaFinColumna" prefWidth="90.0" text="Fecha de Finalización" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="21.0" layoutY="133.0" prefHeight="329.0" prefWidth="210.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Nombre tarea" textFill="#1f2937">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="58.0" text="Descripción tarea" textFill="#1f2937">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="100.0" text="Responsable tarea" textFill="#1f2937">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="142.0" text="Estado tarea" textFill="#1f2937">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="184.0" text="Prioridad" textFill="#1f2937">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="226.0" text="Fecha Inicio" textFill="#1f2937">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="268.0" text="Fecha Fin" textFill="#1f2937">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nombreTareaTexto" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="187.0" />
+            <TextField fx:id="descripcionTareaTexto" layoutX="14.0" layoutY="75.0" prefHeight="25.0" prefWidth="179.0" />
+            <TextField fx:id="responsableTareaTexto" layoutX="14.0" layoutY="117.0" prefHeight="25.0" prefWidth="179.0" />
+            <TextField fx:id="estadoTareaTexto" layoutX="14.0" layoutY="159.0" prefHeight="25.0" prefWidth="179.0" />
+            <TextField fx:id="prioridadTexto" layoutX="14.0" layoutY="201.0" prefHeight="25.0" prefWidth="179.0" />
+            <TextField fx:id="fechaInicioTexto" layoutX="14.0" layoutY="243.0" prefHeight="25.0" prefWidth="179.0" />
+            <TextField fx:id="fechaFinTexto" layoutX="10.0" layoutY="285.0" prefHeight="25.0" prefWidth="179.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="21.0" layoutY="462.0" prefHeight="86.0" prefWidth="216.0">
+         <children>
+            <Button fx:id="agregarBoton" mnemonicParsing="false" onAction="#agregarTarea" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #1E3A8A;" text="➕ Agregar" textFill="#f1faee">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="modificarBoton" layoutX="109.0" layoutY="-1.0" mnemonicParsing="false" onAction="#modificarTarea" prefHeight="38.0" prefWidth="105.0" style="-fx-background-color: #1E3A8A;" text="🖊 Modificar" textFill="#f1faee">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="eliminarBoton" layoutY="48.0" mnemonicParsing="false" onAction="#eliminarTarea" prefHeight="38.0" prefWidth="99.0" style="-fx-background-color: #DC2626;" text="🗑 Eliminar" textFill="#f1faee">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="limpiarBoton" layoutX="109.0" layoutY="48.0" mnemonicParsing="false" onAction="#limpiarFormulario" prefHeight="38.0" prefWidth="105.0" style="-fx-background-color: #FACC15;" text="🔄Limpiar ">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label layoutX="42.0" layoutY="88.0" prefHeight="38.0" prefWidth="210.0" text="Nueva Tarea" textFill="#1f2937">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="454.0" layoutY="88.0" prefHeight="38.0" prefWidth="251.0" text="Lista de Tareas" textFill="#1f2937">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
