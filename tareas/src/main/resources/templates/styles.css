@@ -1,0 +1,66 @@
+.table-view {
+    -fx-table-cell-border-color: #b0cce5;
+    -fx-border-color: #b0cce5;
+    -fx-border-width: 1;
+    -fx-font-size: 13px;
+    -fx-selection-bar: #a0d8f1;
+    -fx-selection-bar-text: black;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #e6f2fb; /* celeste claro */
+}
+
+.table-row-cell:even {
+    -fx-background-color: #ffffff; /* blanco */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #a0d8f1;
+    -fx-text-fill: black;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #d4eaf8; /* celeste más claro */
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #1f1f1f;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER-LEFT;
+}
+
+.table-view .filler {
+    -fx-background-color: #d4eaf8;
+}
+
+/* Estilos para la columna de prioridad */
+.prioridad-alta {
+    -fx-text-fill: #ff0000 !important;
+    -fx-font-weight: bold;
+}
+
+.prioridad-media {
+    -fx-text-fill: #ffa500 !important;
+    -fx-font-weight: bold;
+}
+
+.prioridad-baja {
+    -fx-text-fill: #008000 !important;
+    -fx-font-weight: bold;
+}
+
+/* Asegurar que los estilos se mantengan en las celdas seleccionadas */
+.table-row-cell:selected .prioridad-alta {
+    -fx-text-fill: #ff0000 !important;
+}
+
+.table-row-cell:selected .prioridad-media {
+    -fx-text-fill: #ffa500 !important;
+}
+
+.table-row-cell:selected .prioridad-baja {
+    -fx-text-fill: #008000 !important;
+}
+

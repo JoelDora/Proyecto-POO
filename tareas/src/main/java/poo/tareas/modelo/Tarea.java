@@ -15,8 +15,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
-
 public class Tarea {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +26,13 @@ public class Tarea {
     private Date fechaFinTarea;
     private String estadoTarea;
     private String prioridadTarea;
-
+    
     public Integer getIdTarea() {
         return idTarea;
+    }
+
+    public void setIdTarea(Integer idTarea) {
+        this.idTarea = idTarea;
     }
 
     public String getNombreTarea() {
