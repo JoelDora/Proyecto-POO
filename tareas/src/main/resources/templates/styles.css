@@ -51,6 +51,12 @@
     -fx-font-weight: bold;
 }
 
+.prioridad-vencida {
+    -fx-text-fill: #ff00ff !important; /* Color magenta para destacar */
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(255, 0, 255, 0.1); /* Fondo sutil para destacar aún más */
+}
+
 /* Asegurar que los estilos se mantengan en las celdas seleccionadas */
 .table-row-cell:selected .prioridad-alta {
     -fx-text-fill: #ff0000 !important;
@@ -62,5 +68,39 @@
 
 .table-row-cell:selected .prioridad-baja {
     -fx-text-fill: #008000 !important;
+}
+
+.table-row-cell:selected .prioridad-vencida {
+    -fx-text-fill: #ff00ff !important;
+}
+
+/* Estilos para la ventana de notificaciones */
+.background {
+    -fx-background-color: #F5F7FA;
+}
+
+.titulo-ventana {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C3E50;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Estilo para el indicador de notificaciones activo */
+.notificacion-activa {
+    -fx-fill: #FF4136;
+}
+
+/* Estilo para el indicador de notificaciones inactivo */
+.notificacion-inactiva {
+    -fx-fill: #E0E0E0;
+}
+
+/* Estilo para la alerta de notificación */
+.alerta-notificacion {
+    -fx-background-color: #FEF3C7;
+    -fx-border-color: #F59E0B;
+    -fx-border-width: 1;
+    -fx-padding: 10;
 }
 

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.shape.Circle?>
 
 <BorderPane prefHeight="601.0" prefWidth="895.0" style="-fx-background-color: #F5F7FA;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poo.tareas.controlador.IndexControlador">
    <top>
@@ -181,6 +182,21 @@
                <Font name="System Bold" size="15.0" />
             </font>
          </Button>
+         <StackPane>
+            <Button fx:id="notificacionesBoton" mnemonicParsing="false" onAction="#mostrarNotificaciones" style="-fx-background-color: #DC2626;" text="🔔 Notificaciones" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Ver tareas vencidas y notificaciones pendientes"/>
+               </tooltip>
+            </Button>
+            <Circle fx:id="indicadorNotificaciones" radius="8" fill="#E0E0E0" StackPane.alignment="TOP_RIGHT">
+               <StackPane.margin>
+                  <Insets right="-5" top="-5" />
+               </StackPane.margin>
+            </Circle>
+         </StackPane>
       </HBox>
    </bottom>
 </BorderPane>
