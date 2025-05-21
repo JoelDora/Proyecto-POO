@@ -64,3 +64,33 @@
     -fx-text-fill: #008000 !important;
 }
 
+/* Estilos para la ventana de notificaciones */
+.background {
+    -fx-background-color: #F5F7FA;
+}
+
+.titulo-ventana {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C3E50;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Estilo para el indicador de notificaciones activo */
+.notificacion-activa {
+    -fx-fill: #FF4136;
+}
+
+/* Estilo para el indicador de notificaciones inactivo */
+.notificacion-inactiva {
+    -fx-fill: #E0E0E0;
+}
+
+/* Estilo para la alerta de notificación */
+.alerta-notificacion {
+    -fx-background-color: #FEF3C7;
+    -fx-border-color: #F59E0B;
+    -fx-border-width: 1;
+    -fx-padding: 10;
+}
+

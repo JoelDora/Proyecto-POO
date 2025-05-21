@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="poo.tareas.controlador.NotificacionesControlador"
+      spacing="10"
+      stylesheets="/templates/styles.css"
+      styleClass="background"
+      prefWidth="500"
+      prefHeight="400">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <Label text="Tareas Vencidas" styleClass="titulo-ventana"/>
+    
+    <Label text="Las siguientes tareas han vencido o vencen hoy:" wrapText="true"/>
+    
+    <TableView fx:id="tareasVencidasTabla" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumna" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="nombreColumna" text="Nombre" prefWidth="150"/>
+            <TableColumn fx:id="fechaFinColumna" text="Fecha Límite" prefWidth="120"/>
+            <TableColumn fx:id="responsableColumna" text="Responsable" prefWidth="120"/>
+        </columns>
+    </TableView>
+    
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button fx:id="marcarCompletadaButton" text="Marcar como Completada" onAction="#marcarCompletada"/>
+        <Button fx:id="cerrarButton" text="Cerrar" onAction="#cerrarVentana"/>
+    </HBox>
+    
+</VBox> 
