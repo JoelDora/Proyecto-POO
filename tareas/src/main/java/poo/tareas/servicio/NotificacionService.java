@@ -105,42 +105,34 @@ public class NotificacionService {
      */
     public int verificarTareasVencidasManual() {
         logger.info("Verificando tareas vencidas manualmente...");
-        
         List<Tarea> tareas = tareaServicio.listarTareas();
         LocalDate hoy = LocalDate.now();
-        
         int tareasActualizadas = 0;
-        
         for (Tarea tarea : tareas) {
             if (!"Completada".equals(tarea.getEstadoTarea())) {
                 Date fechaFin = tarea.getFechaFinTarea();
-                
                 if (fechaFin != null) {
                     LocalDate fechaFinLD = fechaFin.toInstant()
                                           .atZone(ZoneId.systemDefault())
                                           .toLocalDate();
-                    
                     if (fechaFinLD.isBefore(hoy) || fechaFinLD.isEqual(hoy)) {
                         // Cambiar prioridad a Alta si está vencida
                         if (!"Alta".equals(tarea.getPrioridadTarea())) {
                             tarea.setPrioridadTarea("Alta");
                             tareaServicio.guardarTarea(tarea);
                             tareasActualizadas++;
-                            
-                            // Agregar a las notificaciones si no está ya
-                            if (!contieneTarea(tareasVencidasSinNotificar, tarea.getIdTarea())) {
-                                tareasVencidasSinNotificar.add(tarea);
-                            }
+                        }
+                        // Agregar a las notificaciones si no está ya
+                        if (!contieneTarea(tareasVencidasSinNotificar, tarea.getIdTarea())) {
+                            tareasVencidasSinNotificar.add(tarea);
                         }
                     }
                 }
             }
         }
-        
         if (tareasActualizadas > 0) {
             hayNotificacionesNuevas = true;
         }
-        
         logger.info("Verificación manual completada. {} tareas actualizadas", tareasActualizadas);
         return tareasActualizadas;
     }
@@ -151,6 +143,26 @@ public class NotificacionService {
      * @return Lista de tareas vencidas sin notificar
      */
     public List<Tarea> getTareasVencidasSinNotificar() {
+        // Si la lista está vacía, reconstruirla desde la base de datos
+        if (tareasVencidasSinNotificar.isEmpty()) {
+            List<Tarea> tareas = tareaServicio.listarTareas();
+            LocalDate hoy = LocalDate.now();
+            for (Tarea tarea : tareas) {
+                if (!"Completada".equals(tarea.getEstadoTarea())) {
+                    Date fechaFin = tarea.getFechaFinTarea();
+                    if (fechaFin != null) {
+                        LocalDate fechaFinLD = fechaFin.toInstant()
+                                .atZone(ZoneId.systemDefault())
+                                .toLocalDate();
+                        if (fechaFinLD.isBefore(hoy) || fechaFinLD.isEqual(hoy)) {
+                            if (!contieneTarea(tareasVencidasSinNotificar, tarea.getIdTarea())) {
+                                tareasVencidasSinNotificar.add(tarea);
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return new ArrayList<>(tareasVencidasSinNotificar);
     }
     
